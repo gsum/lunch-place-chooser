@@ -66,10 +66,12 @@ $(document).ready(function() {
           address.innerHTML = vals["formatted_address"];
           var rating = document.getElementById("rating");
           rating.innerHTML = vals["rating"];
-          var uluru = {lat: -25.344, lng: 131.036};
+          var lat = vals["geometry"]["location"]["lat"]
+          var lng = vals["geometry"]["location"]["lng"]
+          var uluru = {lat: lat, lng: lng};
           // The map, centered at Uluru
           var map = new google.maps.Map(
-              document.getElementById('map'), {zoom: 4, center: uluru});
+              document.getElementById('map'), {zoom: 18, center: uluru});
           // The marker, positioned at Uluru
           var marker = new google.maps.Marker({position: uluru, map: map});
         }
