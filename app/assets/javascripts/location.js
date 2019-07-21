@@ -5,6 +5,18 @@ $(document).ready(function() {
     var long = pos.coords.longitude;
     console.log(lat);
     console.log(long);
+
+    $.ajax({
+      type: "GET",
+      url: "/locations",
+      dataType: "JSON",
+      success: function(response){
+        console.log(response);
+      },
+      fail: function(response){
+        console.log("faield");
+      }
+    });
   }
   var pos = navigator.geolocation.getCurrentPosition(success);
   // function getLocation() {
