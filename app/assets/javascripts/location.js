@@ -1,7 +1,6 @@
 $(document).ready(function() {
   function make_form(){
     console.log("Make Form Function");
-    var x = document.getElementById("demo");
   }
   function success(pos){
     console.log("Geolocation Success Function");
@@ -21,8 +20,15 @@ $(document).ready(function() {
         success: function(response){
           console.log("Success");
           console.log(response);
+          console.log(response['response']);
+          console.log(typeof(response['response']));
           var x = document.getElementById("demo");
-          x.innerHTML = response['response']['name'];
+          if (response['response'] == null)
+          {
+            x.innerHTML = "Enter valid address.  Herh herh herh.";
+          }else{
+            x.innerHTML = response['response']['name'];
+          }
         },
         fail: function(response){
           console.log("Failed");
@@ -49,7 +55,24 @@ $(document).ready(function() {
         console.log("Success");
         console.log(response);
         var x = document.getElementById("demo");
-        x.innerHTML = response['response']['name'];
+        if (response['response'] == null)
+        {
+          x.innerHTML = "Enter valid address.  Herh herh herh.";
+        }else{
+          var vals = response['response']
+          var name = document.getElementById("name");
+          name.innerHTML = vals["name"];
+          var address = document.getElementById("address");
+          address.innerHTML = vals["formatted_address"];
+          var rating = document.getElementById("rating");
+          rating.innerHTML = vals["rating"];
+          var uluru = {lat: -25.344, lng: 131.036};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 4, center: uluru});
+          // The marker, positioned at Uluru
+          var marker = new google.maps.Marker({position: uluru, map: map});
+        }
       },
       fail: function(response){
         console.log("Failed");
