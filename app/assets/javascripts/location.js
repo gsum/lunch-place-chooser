@@ -1,24 +1,35 @@
 $(document).ready(function() {
-  function success(pos){
+  function make_form(){
     var x = document.getElementById("demo");
+    x.innerHTML = "make Form"
+  }
+  function success(pos){
     var lat = pos.coords.latitude;
     var long = pos.coords.longitude;
     console.log(lat);
     console.log(long);
 
-    $.ajax({
-      type: "GET",
-      url: "/locations",
-      dataType: "JSON",
-      success: function(response){
-        console.log(response);
-      },
-      fail: function(response){
-        console.log("faield");
-      }
-    });
+    if (typeof(lat) != "undefined" && typeof(long) != "undefined")
+    {
+      $.ajax({
+        type: "GET",
+        url: "/locations_with_long_lat",
+        data: "lat="+lat+"&long="+long,
+        dataType: "JSON",
+        success: function(response){
+          console.log(response);
+          var x = document.getElementById("demo");
+          x.innerHTML = response['response']['name'];
+        },
+        fail: function(response){
+          console.log("Failed");
+        }
+      });
+    }else{
+      make_form();
+    }
   }
-  var pos = navigator.geolocation.getCurrentPosition(success);
+  var pos = navigator.geolocation.getCurrentPosition(success, make_form);
   // function getLocation() {
   //   if (navigator.geolocation) {
   //     navigator.geolocation.getCurrentPosition(showPosition);
