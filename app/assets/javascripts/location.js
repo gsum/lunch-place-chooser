@@ -1,16 +1,22 @@
 $(document).ready(function() {
-  alert("loaded");
-  var x = document.getElementById("demo");
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
+  function success(pos){
+    var x = document.getElementById("demo");
+    var lat = pos.coords.latitude;
+    var long = pos.coords.longitude;
+    console.log(lat);
+    console.log(long);
   }
-
-  function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-  }
+  var pos = navigator.geolocation.getCurrentPosition(success);
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     x.innerHTML = "Geolocation is not supported by this browser.";
+  //   }
+  // }
+  //
+  // function showPosition(position) {
+  //   x.innerHTML = "Latitude: " + position.coords.latitude +
+  //   "<br>Longitude: " + position.coords.longitude;
+  // }
 });
