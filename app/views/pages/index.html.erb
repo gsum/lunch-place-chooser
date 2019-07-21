@@ -1,14 +1,17 @@
 <%= javascript_include_tag 'location' %>
-<div class="">
-  <h1>getLocation</h1>
-</div>
-
 
 <p id="demo"></p>
 
-<div class="form">
-  <form class="" onsubmit="return false">
-    <input id="input_val" type="text" name="location_name" required>
-    <input type="submit" name="button" onclick="get_nearby_place()">
-  </form>
+<div class="jumbotron">
+  <div class="text-center">
+    <h1>Find your location automatically cannot.  Enter manually. </h1>
+    <div class="d-flex justify-content-center">
+      <div class="col-md-6">
+        <form class="" onsubmit="return false">
+          <input class="form-control" id="input_val" type="text" name="location_name" required>
+          <input class="btn btn-success mt-1" type="submit" name="button" onclick="get_nearby_place()">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
