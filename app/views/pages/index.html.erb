@@ -1,14 +1,38 @@
 <%= javascript_include_tag 'location' %>
-<div class="">
-  <h1>getLocation</h1>
+<style>
+     #map {
+       height: 400px;
+       width: 100%;
+      }
+   </style>
+<div id="demo_div" class="jumbotron bg-dark text-white" style="display: none">
+  <div id="demo" class="d-flex justify-content-center">
+    <h1 class="text-success">Enter valid address.  Herh herh herh.</h1>
+  </div>
+</div>
+<div id="ans" class="jumbotron bg-dark text-white" style="display: none">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-success">Your place to eat today here is.  Hmmmmmm.</h1>
+      <div id="name" class="text-success"></div>
+      <div id="address" class="text-success"></div>
+      <div id="rating" class="text-success"></div>
+      <div id="map" class="">
+      </div>
+    </div>
+  </div>
 </div>
 
-
-<p id="demo"></p>
-
-<div class="form">
-  <form class="" onsubmit="return false">
-    <input id="input_val" type="text" name="location_name" required>
-    <input type="submit" name="button" onclick="get_nearby_place()">
-  </form>
+<div class="jumbotron bg-dark text-white">
+  <div class="text-center">
+    <h1 id="form_header" class="text-success">Find your location automatically cannot.  Enter manually. </h1>
+    <div class="d-flex justify-content-center">
+      <div class="col-md-6">
+        <form class="" onsubmit="return false">
+          <input class="form-control" id="input_val" type="text" name="location_name" required>
+          <input class="btn btn-success mt-1" type="submit" name="button" onclick="get_nearby_place()">
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
