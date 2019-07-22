@@ -17,10 +17,14 @@ src="https://maps.googleapis.com/maps/api/js?key=<%= @google_maps_api_key %>">
   <div class="d-flex justify-content-center">
     <div class="col-md-6">
       <h1 class="text-success">Your place to eat today here is.  Hmmmmmm.</h1>
-      <div id="name" class="text-success"></div>
-      <div id="address" class="text-success"></div>
-      <div id="rating" class="text-success"></div>
+      <h3 id="name" class="text-success"></h3>
+      <h3 id="address" class="text-success"></h3>
+      <h3 id="rating" class="text-success"></h3>
       <div id="map" class="">
+      </div>
+      <div class="text-success mt-2">
+        <%= image_tag "yoda-1.png", size: "30" %>
+        My idea change it if you like not.
       </div>
     </div>
   </div>
