@@ -5,22 +5,27 @@
        width: 100%;
       }
    </style>
-
-<p id="demo"></p>
-
-<div class="ans">
-  Your place to eat today here is.  Hmmmmmm.
-  <p id="name"></p>
-  <p id="address"></p>
-  <p id="rating"></p>
-  <div id="map" class="">
-
+<div id="demo_div" class="jumbotron bg-dark text-white" style="display: none">
+  <div id="demo" class="d-flex justify-content-center">
+    <h1 class="text-success">Enter valid address.  Herh herh herh.</h1>
+  </div>
+</div>
+<div id="ans" class="jumbotron bg-dark text-white" style="display: none">
+  <div class="d-flex justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-success">Your place to eat today here is.  Hmmmmmm.</h1>
+      <div id="name" class="text-success"></div>
+      <div id="address" class="text-success"></div>
+      <div id="rating" class="text-success"></div>
+      <div id="map" class="">
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="jumbotron">
+<div class="jumbotron bg-dark text-white">
   <div class="text-center">
-    <h1>Find your location automatically cannot.  Enter manually. </h1>
+    <h1 id="form_header" class="text-success">Find your location automatically cannot.  Enter manually. </h1>
     <div class="d-flex justify-content-center">
       <div class="col-md-6">
         <form class="" onsubmit="return false">
